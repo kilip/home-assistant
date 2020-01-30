@@ -1,0 +1,13 @@
+- platform: mqtt
+  unique_id: mbr_ambilight
+  name: "Bedroom Ambilight"
+  state_topic: mbr-panel/stat/RESULT
+  value_template: "{{ value_json.POWER1 }}"
+  command_topic: mbr-panel/cmnd/POWER1
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1
+  retain: false
+  availability_topic: mbr-panel/tele/LWT
+  payload_available: "Online"
+  payload_not_available: "Offline"

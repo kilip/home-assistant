@@ -1,0 +1,32 @@
+- platform: mqtt
+  name: "AC Kamar"
+  unique_id: mbr_ac
+  modes: 
+    - "heat"
+    - "cool"
+    - "off"
+    - "fan_only"
+    #- "ai"
+    #- "dehumidifier"
+  fan_modes:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+  swing_modes:
+    - "on"
+    - "off"
+  initial: 27
+  availability_topic: "remote1/tele/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  power_command_topic: "mbr/ac/power"
+  mode_command_topic: "mbr/ac/mode"
+  temperature_command_topic: "mbr/ac/temperature"
+  fan_mode_command_topic: "mbr/ac/fan"
+  swing_mode_command_topic: "mbr/ac/swing"
+  precision: 0.1
+  temp_step: 1
+  min_temp: 18
+  max_temp: 30
+  

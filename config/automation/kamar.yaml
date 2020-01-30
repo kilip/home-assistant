@@ -1,0 +1,17 @@
+- alias: "Lampu Kamar Auto OFF"
+  trigger:
+    platform: state
+    entity_id: light.mbr_light
+  condition:
+    - condition: time
+      after: '18:00:00'
+      before: '06:00:00'
+  action:
+    - entity_id: light.mbr_ambilight
+      service_template: >-
+       {% if is_state('light.mbr_light', 'on') %}
+        light.turn_off
+       {% else %}
+        light.turn_on
+       {% endif %}
+  

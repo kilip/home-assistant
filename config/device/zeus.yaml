@@ -1,0 +1,3 @@
+- platform: ping
+  hosts:
+    zeus: zeus.itstoni.com
