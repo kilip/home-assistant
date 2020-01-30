@@ -9,6 +9,8 @@ homeassistant:
   time_zone: Asia/Makassar
   packages: !include_dir_named packages
 
+device_tracker: 
+
 mqtt:
   discovery: false
   broker: !secret mqtt_host
@@ -18,10 +20,10 @@ mqtt:
 
 group: !include_dir_merge_named group
 device_tracker: !include_dir_merge_list device
-sensor: !include_dir_merge_list sensor
+#sensor: !include_dir_merge_list sensor
 automation: !include_dir_merge_list automation
 climate: !include_dir_merge_list climate
-scene: !include_dir_merge_list scene
+#scene: !include_dir_merge_list scene
 switch: !include_dir_merge_list switch
 light: !include_dir_merge_list light
 script: !include_dir_merge_named script
@@ -29,9 +31,6 @@ input_boolean: !include_dir_merge_named input_boolean
 shell_command: !include_dir_merge_named shell_command
 media_player: !include_dir_merge_list media
 
-#discovery:
-#  enable:
-#    - kodi
 mikrotik:
   - host: !secret ares_host
     username: !secret ares_username
