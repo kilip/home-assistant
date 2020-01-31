@@ -1,0 +1,7 @@
+mqtt:
+  discovery: false
+  broker: !secret mqtt_host
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  port: 1883
+  

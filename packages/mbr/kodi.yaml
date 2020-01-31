@@ -1,0 +1,39 @@
+media_player:
+- platform: kodi
+  host: !secret kodi_host
+  name: HTPC
+  username: !secret kodi_username
+  password: !secret kodi_password
+  enable_websocket: false
+  turn_on_action:
+    - service: switch.turn_on
+      entity_id: switch.tv
+    - delay: 10
+    - service: switch.turn_on
+      entity_id: switch.htpc
+  turn_off_action:
+    - service: switch.turn_off
+      entity_id: switch.tv
+    - service: kodi.call_method
+      data:
+        entity_id: media_player.htpc
+        method: System.Shutdown
+switch:
+  platform: template
+  switches:
+    mode_kodi:
+      value_template: "{{ is_state('input_boolean.mode_kodi', 'on') }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.mode_kodi
+        - service: group.set_visibility
+          entity_id: group.remote_control_kodi
+          data:
+            visible: True
+      turn_off:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.mode_kodi
+        - service: group.set_visibility
+          entity_id: group.remote_control_kodi
+          data:
+            visible: False   

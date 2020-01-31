@@ -1,5 +1,6 @@
-- platform: mqtt
-  unique_id: mbr_speaker
+switch:
+- unique_id: mbr_speaker
+  platform: mqtt
   name: "Speaker"
   state_topic: mbr-panel/stat/RESULT
   value_template: "{{ value_json.POWER2 }}"
@@ -12,9 +13,9 @@
   payload_available: "Online"
   payload_not_available: "Offline"
 
-- platform: mqtt
-  unique_id: mbr_htpc
-  name: "HTPC Switch"
+- unique_id: mbr_htpc
+  platform: mqtt
+  name: "HTPC"
   state_topic: mbr-panel/stat/RESULT
   value_template: "{{ value_json.POWER3 }}"
   command_topic: mbr-panel/cmnd/POWER3
@@ -26,8 +27,8 @@
   payload_available: "Online"
   payload_not_available: "Offline"
 
-- platform: mqtt
-  unique_id: mbr_tv
+- unique_id: mbr_tv
+  platform: mqtt
   name: "TV"
   state_topic: mbr-panel/stat/RESULT
   value_template: "{{ value_json.POWER4 }}"

@@ -1,0 +1,104 @@
+climate:
+- platform: mqtt
+  name: "AC Kamar"
+  unique_id: mbr_hvac
+  availability_topic: "remote1/tele/LWT"
+
+  power_command_topic: "mbr/ac/power"
+  power_state_topic: "mbr/ac/tele"
+  power_state_template: "{{ value_json.power }}"
+
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  payload_on: 'on'
+  payload_off: 'off'
+  action_topic: "mbr/ac/tele"
+  action_template: >-
+    {% if value_json.mode == 'cool' %}
+      cooling
+    {% elif value_json.mode == 'heat' %}
+      heating
+    {% elif value_json.mode == 'dry' %}
+      drying
+    {% elif value_json.mode == 'auto' %}
+      cooling
+    {% elif value_json.mode == 'fan_only' %}
+      idle
+    {% else %}
+      off
+    {% endif %}
+  mode_command_topic: "mbr/ac/mode"
+  mode_state_topic: "mbr/ac/tele"
+  mode_state_template: "{{value_json.mode}}"
+  modes:
+    - 'off'
+    - auto
+    - cool
+    - heat
+    - dry
+    - fan_only
+  
+  # temperature
+  temperature_command_topic: "mbr/ac/temperature"
+  current_temperature_topic: "mbr/ac/tele"
+  current_temperature_template: "{{value_json.temperature}}"
+  precision: 0.1
+  temp_step: 1
+  min_temp: 18
+  max_temp: 30
+  initial: 27
+  
+  # fan section
+  fan_modes:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+  fan_mode_state_topic: "mbr/ac/tele"
+  fan_mode_state_template: "{{value_json.fan}}"
+  fan_mode_command_topic: "mbr/ac/fan"
+  
+  # swing section
+  swing_modes:
+    - "on"
+    - "off"
+  swing_mode_state_topic: "mbr/ac/tele"
+  swing_mode_state_template: "{{value_json.swing}}"
+  swing_mode_command_topic: "mbr/ac/swing"
+  
+switch:
+- platform: mqtt
+  name: "MBR HVAC Power"
+  unique_id: "mbr_ac_power"
+  state_topic: "mbr/ac/tele"
+  value_template: "{{ value_json.power }}"
+  command_topic: "mbr/ac/power"
+  payload_on: "on"
+  payload_off: "off"
+  availability_topic: remote1/tele/LWT
+  payload_available: "Online"
+  payload_not_available: "Offline"
+
+- platform: mqtt
+  name: "MBR HVAC Eco"
+  unique_id: "thermo_saving"
+  state_topic: "mbr/ac/tele"
+  value_template: "{{ value_json.energy_saving }}"
+  command_topic: "mbr/ac/energy_saving"
+  payload_on: "on"
+  payload_off: "off"
+  availability_topic: remote1/tele/LWT
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  
+- platform: mqtt
+  name: "MBR HVAC Autoclean"
+  unique_id: "mbr_hvac_autoclean"
+  state_topic: "mbr/ac/tele"
+  value_template: "{{ value_json.autoclean }}"
+  command_topic: "mbr/ac/autoclean"
+  payload_on: "on"
+  payload_off: "off"
+  availability_topic: remote1/tele/LWT
+  payload_available: "Online"
+  payload_not_available: "Offline"

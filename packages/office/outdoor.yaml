@@ -1,0 +1,13 @@
+script:
+  outdoor:
+    description: "Auto Turn On/Off Outdoor"
+    sequence:
+      - entity_id: light.outdoor
+        service_template: >-
+          {% if now().hour > 18 %}
+            light.turn_on
+          {% elif now().hour > 0 and now().hour < 6 %}
+            light.turn_on
+          {% else %}
+            light.turn_off
+          {% endif %}

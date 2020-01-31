@@ -1,0 +1,6 @@
+device_tracker:
+- platform: ping
+  hosts:
+    zeus: zeus.itstoni.com
+    hestia: hestia.itstoni.com
+    apolo: apolo.itstoni.com

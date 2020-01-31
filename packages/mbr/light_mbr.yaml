@@ -1,0 +1,60 @@
+light:
+- platform: mqtt
+  unique_id: mbr_main_light
+  name: "Bedroom"
+  state_topic: mbr-main/stat/RESULT
+  value_template: "{{ value_json.POWER }}"
+  command_topic: mbr-main/cmnd/POWER
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1
+  retain: false
+  availability_topic: "mbr-main/tele/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- unique_id: mbr_ambilight
+  platform: mqtt
+  name: "Bedroom Ambilight"
+  state_topic: mbr-panel/stat/RESULT
+  value_template: "{{ value_json.POWER1 }}"
+  command_topic: mbr-panel/cmnd/POWER1
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1
+  retain: false
+  availability_topic: mbr-panel/tele/LWT
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- unique_id: mbr_rgb
+  platform: mqtt
+  name: "Main Bedroom RGB Bulb"
+  command_topic: "mbr-bulb/cmnd/POWER"
+  state_topic: "mbr-bulb/tele/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "mbr-bulb/tele/LWT"
+  brightness_command_topic: "mbr-bulb/cmnd/Dimmer"
+  brightness_state_topic: "mbr-bulb/tele/STATE"
+  brightness_scale: 100
+  on_command_type: "brightness"
+  brightness_value_template: "{{value_json.Dimmer}}"
+  color_temp_command_topic: "mbr-bulb/cmnd/CT"
+  color_temp_state_topic: "mbr-bulb/tele/STATE"
+  color_temp_value_template: "{{value_json.CT}}"
+  rgb_command_topic: "mbr-bulb/cmnd/Color2"
+  rgb_state_topic: "mbr-bulb/tele/STATE"
+  rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
+  effect_command_topic: "mbr-bulb/cmnd/Scheme"
+  effect_state_topic: "mbr-bulb/tele/STATE"
+  effect_value_template: "{{value_json.Scheme}}"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false

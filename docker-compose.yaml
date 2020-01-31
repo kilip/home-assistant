@@ -1,9 +1,10 @@
 version: "3"
 services:
-  hassio:
+  hass:
+    container_name: hass
     image: vimagick/hass
     volumes:
-      - ./config:/etc/hass
+      - ./:/etc/hass
     network_mode: host
     ports:
       - "8123:8123"

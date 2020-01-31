@@ -4,3 +4,6 @@ ip_bans.yaml
 
 .HA_VERSION
 .pip_progress
+.storage
+.cloud
+home-assistant*

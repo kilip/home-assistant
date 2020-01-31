@@ -1,0 +1,12 @@
+cloud:
+  google_actions:
+    filter:
+      include_domains:
+      - light
+      - climate
+      include_entities:
+      - media_player.htpc
+    entity_config:
+      media_player.htpc:
+        name: TV
+        room: Main Room

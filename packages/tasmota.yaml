@@ -1,3 +1,4 @@
+automation:
 - alias: "Sync Tasmota states on start-up - autodiscovery"
   initial_state: true
   trigger:

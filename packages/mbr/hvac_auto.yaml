@@ -1,0 +1,10 @@
+automation:
+- id: apolo_shutdown
+  alias: "Apolo Shutdown"
+  trigger:
+    platform: state
+    entity_id: media_player.htpc
+    to: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.htpc
