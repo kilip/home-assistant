@@ -1,0 +1,6 @@
+known_devices.yaml
+secrets.yaml
+ip_bans.yaml
+
+!*.yaml
+!.gitignore
