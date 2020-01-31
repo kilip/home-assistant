@@ -1,0 +1,23 @@
+title: General
+id: general
+icon: mdi:home
+cards:
+  - id: cards.home
+    type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        title: Bedroom
+        cards:
+          - type: light
+            entity: light.mbr_ambilight
+          - type: light
+            entity: light.mbr_main
+      - type: vertical-stack
+        title: Office
+        cards:
+          - type: light
+            entity: light.store
+          - type: light
+            entity: light.office
+          - type: light
+            entity: light.outdoor

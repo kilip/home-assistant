@@ -1,0 +1,5 @@
+custom_header:
+  compact_mode: true
+title: Ajeng's Home
+views:
+  - !include lovelace/home.yaml
