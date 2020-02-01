@@ -1,0 +1,118 @@
+title: Kodi
+path: tv
+icon: mdi:disc-player
+cards:
+### First Row
+- type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: entity-button
+        entity: script.kodi_nav_context
+        icon: mdi:menu
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_context
+      - type: entity-button
+        entity: script.kodi_nav_up
+        icon: mdi:arrow-up-drop-circle
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_up        
+      - type: entity-button
+        entity: script.kodi_nav_info
+        icon: mdi:book-information-variant
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_info
+
+### Second Row
+- type: vertical-stack          
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: entity-button
+        entity: script.kodi_nav_left
+        icon: mdi:arrow-left-drop-circle
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_left
+      - type: entity-button
+        entity: script.kodi_nav_select
+        icon: mdi:home
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_select
+      - type: entity-button
+        entity: script.kodi_nav_right
+        icon: mdi:arrow-right-drop-circle
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_right
+
+### 3rd row
+- type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: entity-button
+        entity: script.kodi_nav_back
+        icon: mdi:backspace
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_back      
+      - type: entity-button
+        entity: script.kodi_nav_down
+        icon: mdi:arrow-down-drop-circle
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_down
+      - type: entity-button
+        entity: script.kodi_nav_osd
+        icon: mdi:clipboard
+        tap_action:
+          action: call-service
+          service: script.kodi_nav_osd
+#- type: media-control
+#  entity: media_player.htpc
+
+- type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+      - type: entity-button
+        entity: switch.mode_kodi
+        name: P
+        icon: mdi:power
+      - type: entity-button #down
+        name: Stop
+        entity: script.kodi_stop
+        icon: mdi:stop
+        tap_action:
+          action: call-service
+          service: script.kodi_stop
+      - type: entity-button
+        name: P
+        entity: script.kodi_playpause
+        icon: mdi:play-pause
+        tap_action:
+          action: call-service
+          service: script.kodi_playpause
+      - type: entity-button
+        entity: input_number.kodi_volume
+      - type: entity-button # up
+        name: Stop
+        entity: script.tv_volume_up
+        icon: mdi:arrow-up-bold
+        tap_action:
+          action: call-service
+          service: script.tv_volume_up
+      - type: entity-button
+        name: Stop
+        entity: script.tv_volume_down
+        icon: mdi:arrow-down-bold
+        tap_action:
+          action: call-service
+          service: script.tv_volume_down
+
+          

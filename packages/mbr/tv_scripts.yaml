@@ -1,0 +1,18 @@
+script:
+  tv_volume_up:
+    alias: Up
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: 'remote1/cmnd/IRSend'
+          payload: >
+            {"Protocol":"SHARP","Bits":15,"Data":"0x40A2","DataLSB":"0x0245","Repeat":0}
+
+  tv_volume_down:
+    alias: Down
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: 'remote1/cmnd/IRSend'
+          payload: >
+            {"Protocol":"SHARP","Bits":15,"Data":"0x42A2","DataLSB":"0x4245","Repeat":0}

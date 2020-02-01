@@ -14,7 +14,7 @@ light:
   payload_not_available: "Offline"
 - unique_id: mbr_ambilight
   platform: mqtt
-  name: "Bedroom Ambilight"
+  name: "Ambilight"
   state_topic: mbr-panel/stat/RESULT
   value_template: "{{ value_json.POWER1 }}"
   command_topic: mbr-panel/cmnd/POWER1
@@ -27,7 +27,7 @@ light:
   payload_not_available: "Offline"
 - unique_id: mbr_rgb
   platform: mqtt
-  name: "Main Bedroom RGB Bulb"
+  name: "RGB"
   command_topic: "mbr-bulb/cmnd/POWER"
   state_topic: "mbr-bulb/tele/STATE"
   state_value_template: "{{value_json.POWER}}"

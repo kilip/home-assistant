@@ -11,3 +11,47 @@ homeassistant:
 
 device_tracker:
 wake_on_lan:
+
+http:
+  ssl_certificate: 'ssl/fullchain.pem'
+  ssl_key: 'ssl/privkey.pem'
+
+lovelace:
+  mode: yaml
+
+frontend:
+  themes: !include_dir_merge_named themes
+google_assistant:
+  project_id: iris-hass
+  service_account: !include credentials/google-sa.json
+  report_state: true
+  exposed_domains:
+    - light
+    - climate
+    - media_player
+  entity_config:
+    media_player.htpc:
+      name: TV
+      room: Master Bedroom
+    climate.mbr_hvac:
+      name: Cooler
+      room: Master Bedroom
+    light.bedroom_rgb1:
+      name: Ambilight
+      room: Master Bedroom
+    light.bedroom_ambilight:
+      name: Ambilight
+      room: Master Bedroom
+    light.bedroom:
+      name: Bedroom
+      room: Master Bedroom
+    light.outdoor:
+      name: Outdoor
+      room: Outdoor
+    light.store:
+      name: Store
+      room: Living Room
+    light.office:
+      name: Office
+      room: Living Room
+

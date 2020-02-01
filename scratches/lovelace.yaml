@@ -1,0 +1,40 @@
+title: Ajeng's Home
+views:
+  - badges:
+      - entity: binary_sensor.updater
+      - entity: person.anthonius_munthi
+      - entity: device_tracker.zeus
+      - entity: device_tracker.hestia
+      - entity: device_tracker.apolo
+      - entity: sun.sun
+    cards:
+      - entity: climate.ac_kamar
+        type: thermostat
+      - entities:
+          - entity: light.bedroom_rgb1
+          - entity: light.bedroom
+          - entity: light.bedroom_ambilight
+          - entity: light.outdoor
+          - entity: light.store
+          - entity: light.office
+        title: Light
+        type: entities
+      - entity: media_player.htpc
+        type: media-control
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
+      - entities:
+          - switch.mode_kodi
+          - switch.htpc
+          - switch.tv
+          - switch.speaker
+          - switch.mbr_hvac_autoclean
+          - switch.mbr_hvac_eco
+          - switch.mbr_hvac_power
+        title: Switch
+        type: entities
+    path: info
+    theme: default
+    title: Info

@@ -9,11 +9,3 @@ automation:
       data:
         topic: "tasmotas/cmnd/state"
         payload: ""
-
-- alias: "Turn ON Outdoor"
-  initial_state: true
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    - service: script.outdoor

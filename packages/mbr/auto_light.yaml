@@ -11,7 +11,7 @@ automation:
   action:
     - entity_id: light.bedroom_ambilight
       service_template: >-
-       {% if is_state('light.mbr_main', 'on') %}
+       {% if is_state('light.bedroom', 'on') %}
         light.turn_off
        {% else %}
         light.turn_on

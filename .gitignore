@@ -6,4 +6,8 @@ ip_bans.yaml
 .pip_progress
 .storage
 .cloud
+.vscode
+custom_components/hacs
 home-assistant*
+ssl
+credentials

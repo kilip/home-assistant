@@ -1,0 +1,35 @@
+title: Home
+path: home
+icon: mdi:home
+cards:
+- type: entities
+  entities:
+  - device_tracker.toni_phone
+  - type: divider
+  - device_tracker.bety_phone
+- type: vertical-stack
+  cards:
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.bedroom
+      icon: mdi:ceiling-light
+    - type: entity-button
+      entity: light.bedroom_ambilight
+      icon: mdi:television
+    - type: entity-button
+      entity: light.bedroom_rgb1
+      icon: mdi:lamp
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.office
+      icon: mdi:office
+    - type: entity-button
+      entity: light.store
+      icon: mdi:cart
+    - type: entity-button
+      entity: light.outdoor
+      icon: mdi:outdoor-lamp
+- type: thermostat
+  entity: climate.ac_kamar

@@ -1,5 +1,13 @@
 custom_header:
   compact_mode: true
+  background: var(--app-header-background-color)
+  elements_color: var(--app-header-text-color)
+  active_tab_color: var(--state-icon-active-color)
+  tab_indicator_color: var(--state-icon-active-color)
+
 title: Ajeng's Home
+theme: darkmix
+panel: true
 views:
-  - !include lovelace/home.yaml
+  - !include views/00_home.yaml
+  - !include views/01_media.yaml
