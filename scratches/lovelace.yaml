@@ -38,3 +38,11 @@ views:
     path: info
     theme: default
     title: Info
+
+python3.6 -m pip install --upgrade google-auth-oauthlib[tool] google-oauthlib-tool --client-secrets /home/toni/secret.json --scope https://www.googleapis.com/auth/assistant-sdk-prototype --save --headless
+
+
+google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
+      --save --headless --client-secrets /home/toni/client_secret.json
+
+googlesamples-assistant-pushtotalk --project-id iris-speaker --device-model-id iris-speaker-iris-speaker-hi69i9

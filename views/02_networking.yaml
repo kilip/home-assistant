@@ -1,0 +1,41 @@
+title: Network Devices
+icon: mdi:network
+path: network
+cards:
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: >
+      #### Iris
+  - type: horizontal-stack
+    cards:
+    - type: gauge
+      entity: sensor.iris_cpu_used
+    - type: gauge
+      entity: sensor.iris_ram_used_percent
+  - type: horizontal-stack
+    cards:
+    - type: gauge
+      entity: sensor.iris_cpu_used
+    - type: gauge
+      entity: sensor.iris_ram_used_percent
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: >
+      #### Zeus
+  - type: horizontal-stack
+    cards:
+    - type: horizontal-stack
+      cards:
+      - type: entity-button
+        entity: switch.zeus
+      - type: conditional
+        conditions:
+        - entity: switch.zeus
+          state: "on"
+        card:
+          type: entities
+          entities:
+          - sensor.zeus_cpu_used
+          - sensor.zeus_ram_used

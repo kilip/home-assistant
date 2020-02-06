@@ -1,0 +1,27 @@
+glances:
+- host: zeus.itstoni.com
+  name: zeus
+  version: 2
+- host: 172.16.0.4
+  name: Iris
+  version: 2
+#  - host: zeus.itstoni.com
+#    name: zeus
+#    version: 2
+#  - host: hera.itstoni.com
+#    name: hera
+#    version: 2
+#    resources:
+#      - cpu_load
+  
+switch:
+- platform: wake_on_lan
+  name: "Zeus"
+  host: zeus.itstoni.com
+  mac: !secret zeus_mac
+  broadcast_address: !secret zeus_broadcast
+  turn_off:
+    service: shell_command.turn_off_zeus
+
+shell_command:
+  turn_off_zeus: !secret zeus_off

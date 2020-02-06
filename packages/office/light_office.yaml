@@ -7,7 +7,7 @@ light:
   command_topic: switch1/cmnd/POWER1
   payload_on: "ON"
   payload_off: "OFF"
-  qos: 1
+  qos: 2
   retain: false
   availability_topic: switch1/tele/LWT
   payload_available: "Online"
@@ -20,7 +20,7 @@ light:
   command_topic: switch1/cmnd/POWER2
   payload_on: "ON"
   payload_off: "OFF"
-  qos: 1
+  qos: 2
   retain: false
   availability_topic: switch1/tele/LWT
   payload_available: "Online"
@@ -33,7 +33,7 @@ light:
   command_topic: switch1/cmnd/POWER3
   payload_on: "ON"
   payload_off: "OFF"
-  qos: 1
+  qos: 2
   retain: false
   availability_topic: switch1/tele/LWT
   payload_available: "Online"

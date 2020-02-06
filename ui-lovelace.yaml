@@ -11,3 +11,4 @@ panel: true
 views:
   - !include views/00_home.yaml
   - !include views/01_media.yaml
+  - !include views/02_networking.yaml

@@ -1,0 +1,35 @@
+input_boolean:
+  mode_day:
+    name: "Day Mode"
+    initial: off
+  mode_night:
+    name: "Night Mode"
+    initial: off
+  leaving_home:
+    name: "Leaving Home"
+    initial: off
+
+switch:
+- platform: template
+  switches:
+    leaving_home:
+      value_template: "{{ is_state('input_boolean.leaving_home','on') }}"
+      turn_on:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.leaving_home
+      turn_off:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.leaving_home
+
+automation:
+- id: "leaving_home_on"
+  alias: "Leaving Home"
+  trigger:
+    platform: state
+    entity_id: switch.leaving_home
+  action:
+  - service_template: light.turn_off
+    entity_id: light.office
+  - delay: 2
+  - service: light.turn_off
+    entity_id: ligth.store
