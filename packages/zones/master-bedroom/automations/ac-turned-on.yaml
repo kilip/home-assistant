@@ -1,0 +1,21 @@
+---
+id: ac_turned_on
+alias: "AC turned on"
+description: Send IR command to turn on AC
+trigger:
+- platform: state
+  entity_id: input_boolean.mbr_ac
+  from: "off"
+  to: "on"
+action:
+  - service: script.mqtt_irsend
+    data_template:
+      payload: >-
+        {"Protocol":"LG","Bits":28,"Data":"0x8800D52","DataLSB":"0x1001B04A","Repeat":0}
+  - service: automation.trigger
+    entity_id:
+      - automation.ac_clean
+      - automation.ac_eco
+      - automation.ac_fan
+      - automation.ac_swing
+      - automation.ac_temp

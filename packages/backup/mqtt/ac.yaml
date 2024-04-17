@@ -1,0 +1,15 @@
+switch:
+  - name: AC
+    unique_id: "switch.ac"
+    command_topic: cmnd/mbr-ir-blaster/irhvac
+    payload_on: |
+      {"Vendor": "LG2", "Model": 3, "Mode": "Cool", "Power": "on", "Clean": "on","Temp": "28", "Light": "on", "FanSpeed": "high" }
+    # {"Protocol":"LG","Bits":28,"Data":"0x8800D52","DataLSB":"0x1001B04A","Repeat":0
+    #payload_off: |
+    #  {"Protocol":"LG","Bits":28,"Data":"0x88C00C8","DataLSB":"0x10310013","Repeat":0}
+    payload_off: |
+      {"Vendor": "LG2", "Model": 3, "Mode": "Cool", "Power": "on", "Clean": "on","Temp": "28", "Light": "on"}
+    state_topic: stat/mbr-ir-blaster/RESULT
+    value_template: "{{ value_json.IRHVAC.Power }}"
+    state_on: "On"
+    state_off: "Off"

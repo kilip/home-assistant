@@ -1,0 +1,12 @@
+sync_backup:
+  alias: "Sync backup to IO"
+  mode: single
+  icon: mdi:backup-restore
+  sequence:
+    - alias: Send files command to io
+      service: shell_command.sync_backup
+    - alias: Restart Backup Server
+      service: shell_command.ssh
+      data_template:
+        host: io.lan
+        command: "cd /srv/olympus ; docker compose restart hass"

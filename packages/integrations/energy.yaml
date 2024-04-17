@@ -1,0 +1,19 @@
+input_number:
+  energy_tariff:
+    name: Energy Tariff
+    initial: 1444.7
+    mode: box
+    min: 1000
+    max: 10000
+    step: 0.1
+    unit_of_measurement: IDR/kWh
+
+utility_meter:
+  daily_energy:
+    name: Daily Energy
+    source: sensor.em_main_energy_today
+    cycle: daily
+  homelab_energy:
+    name: Homelab Energy
+    source: sensor.em_homelab_energy_today
+    cycle: daily

@@ -1,0 +1,13 @@
+---
+id: bedroom_turned_on
+alias: Bedroom lights turned on
+trigger:
+  - platform: state
+    entity_id: light.master_bedroom_lights
+    from: "off"
+    to: "on"
+action:
+  - service: light.turn_off
+    target:
+      entity_id:
+        - light.mbr_ambilight

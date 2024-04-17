@@ -1,0 +1,18 @@
+---
+id: disable_hdmi_remote
+alias: Disable HDMI Remote
+trigger:
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: state
+    entity_id: input_text.hass_type
+    state: "main"
+action:
+  - service: automation.turn_off
+    target:
+      entity_id: automation.tv_turned_on
+  - delay: '00:01:00'
+  - service: automation.turn_on
+    target:
+      entity_id: automation.tv_turned_on

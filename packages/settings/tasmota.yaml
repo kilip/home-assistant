@@ -1,0 +1,5 @@
+---
+input_number:
+  tasmota_timezone:
+    name: Tasmota Timezone
+    initial: 8

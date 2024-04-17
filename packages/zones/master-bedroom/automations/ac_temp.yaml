@@ -1,0 +1,28 @@
+---
+id: mbr_ac_temp
+alias: AC Temp
+description: Set Target Temperature
+mode: single
+trigger:
+  - platform: state
+    entity_id: input_select.mbr_ac_temp
+variables:
+  payload: ""
+action:
+  - service: script.mqtt_irsend
+    data_template:
+      payload: >-
+        {% set state = states('input_select.mbr_ac_temp') %}
+        {% if '29' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808E4A","DataLSB":"0x10017152","Repeat":0}
+        {% elif '27' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808C48","DataLSB":"0x10013112","Repeat":0}
+        {% elif '26' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808B47","DataLSB":"0x1001D1E2","Repeat":0}
+        {% elif '25' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808A46","DataLSB":"0x10015162","Repeat":0}
+        {% elif '24' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808945","DataLSB":"0x100191A2","Repeat":0}
+        {% else %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808D49","DataLSB":"0x1001B192","Repeat":0}
+        {% endif %}

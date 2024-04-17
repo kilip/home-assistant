@@ -1,0 +1,10 @@
+node_turn_on:
+  alias: "Node turn on"
+  mode: parallel
+  icon: mdi:power
+  sequence:
+    - alias: Send shell command
+      service: shell_command.ssh
+      data_template:
+          host: io.lan
+          command: "wakeonlan {{ mac_address }}"

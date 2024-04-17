@@ -1,0 +1,35 @@
+---
+id: outdoor_lights
+alias: Outdoor Lights
+description: Turns the light on/off
+mode: single
+trigger:
+  - platform: state
+    entity_id: input_boolean.night_time
+  - platform: state
+    entity_id: light.outdoor_lights
+  - platform: state
+    entity_id: 
+      - light.lr_outdoor
+      - light.mbr_outdoor1
+      - light.mbr_outdoor2
+action:
+  - variables:
+      all:
+        - light.lr_outdoor
+        - light.mbr_outdoor1
+        - light.mbr_outdoor2
+  - delay:
+      seconds: 5
+  - if:
+      - condition: state
+        entity_id: input_boolean.night_time
+        state: 'on'
+    then:
+      - service: light.turn_on
+        target:
+          entity_id: "{{ all }}"
+    else:
+      - service: light.turn_off
+        target:
+          entity_id: "{{ all }}"

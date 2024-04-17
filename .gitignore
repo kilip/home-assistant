@@ -1,0 +1,17 @@
+.cloud
+
+.storage/*
+!.storage/lovelace
+!.storage/energy
+
+.env
+
+backups/*
+!backups/.gitkeep
+
+deps/*
+logs/*
+!logs/.gitkeep
+
+ga-service-account.json
+home-assistant*

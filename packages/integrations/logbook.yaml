@@ -1,0 +1,5 @@
+logbook:
+  exclude:
+    entities:
+      - automation.set_night_mode
+      - sensor.time_date

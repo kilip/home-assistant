@@ -1,0 +1,22 @@
+---
+id: mbr_ac_fan
+alias: AC Fan
+description: Publish AC Fan Mode
+mode: single
+trigger:
+  - platform: state
+    entity_id: input_select.mbr_ac_fan
+action:
+  - service: script.mqtt_irsend
+    data_template:
+      payload: >-
+        {% set state = states('input_select.mbr_ac_fan') %}
+        {% if 'Low' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808D05","DataLSB":"0x1001B1A0","Repeat":0}
+        {% elif 'Medium' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808D27","DataLSB":"0x1001B1E4","Repeat":0}
+        {% elif 'High' == state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808D27","DataLSB":"0x1001B1E4","Repeat":0}
+        {% else %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8808D49","DataLSB":"0x1001B192","Repeat":0}
+        {% endif %}

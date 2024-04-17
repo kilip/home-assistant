@@ -1,0 +1,9 @@
+---
+# The recorder component is storing details in a database which
+# then are handled by the history component.
+#
+# https://www.home-assistant.io/components/recorder/
+#
+
+recorder:
+  db_url: !env_var HASS_DB_URL

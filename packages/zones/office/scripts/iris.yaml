@@ -1,0 +1,17 @@
+---
+turn_on_iris:
+  alias: Turn On Iris
+  mode: single
+  icon: mdi:power
+  sequence:
+    - if:
+        - alias: Check if iris is off
+          condition: state
+          entity_id: binary_sensor.iris
+          state: "off"
+      then:
+        - service: script.node_turn_on
+          data_template:
+            mac_address: 00:A0:D1:CF:DE:61
+    - delay:
+        seconds: 30

@@ -1,0 +1,17 @@
+id: mbr_ac_swing
+alias: AC Swing
+description: Set AC Swing Mode
+mode: single
+trigger:
+  - platform: state
+    entity_id: input_boolean.mbr_ac_swing
+action:
+  - service: script.mqtt_irsend
+    data_template:
+      payload: >-
+        {% set state = states('input_boolean.mbr_ac_swing') %}
+        {% if state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x8813149","DataLSB":"0x10818C92","Repeat":0}
+        {% else %}
+          {"Protocol":"LG","Bits":28,"Data":"0x881315A","DataLSB":"0x10818C5A","Repeat":0}
+        {% endif %}

@@ -1,0 +1,18 @@
+mbr_ac:
+  name: Master Bedroom AC
+  icon: mdi:hvac
+
+mbr_ac_eco:
+  name: AC Eco Mode
+  icon: mdi:sprout
+  initial: true
+
+mbr_ac_swing:
+  name: AC Swing Mode
+  icon: mdi:access-point
+  initial: true
+
+mbr_ac_clean:
+  name: AC Clean Mode
+  icon: mdi:vacuum
+  initial: true

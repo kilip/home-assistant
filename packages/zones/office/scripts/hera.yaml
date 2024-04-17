@@ -1,0 +1,17 @@
+---
+turn_on_hera:
+  alias: Turn On Hera
+  mode: single
+  icon: mdi:power
+  sequence:
+    - if:
+        - alias: Check if hera is off
+          condition: state
+          entity_id: binary_sensor.hera
+          state: "off"
+      then:
+        - service: script.node_turn_on
+          data_template:
+            mac_address: 30:65:EC:24:6C:1A
+    - delay:
+        seconds: 30

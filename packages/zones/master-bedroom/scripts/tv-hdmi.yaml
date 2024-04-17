@@ -1,0 +1,17 @@
+switch_hdmi_input:
+  alias: Select TV Input to Input 1 HDMI
+  sequence:
+    - delay:
+        seconds: 15
+    - service: script.mqtt_irsend # input
+      data_template:
+        payload: >-
+          {"Protocol":"SHARP","Bits":15,"Data":"0x4322","DataLSB":"0xC244","Repeat":0}
+    - service: script.mqtt_irsend # down
+      data_template:
+        payload: >-
+          {"Protocol":"SHARP","Bits":15,"Data":"0x4012","DataLSB":"0x248","Repeat":0}
+    - service: script.mqtt_irsend # ok
+      data_template:
+        payload: >-
+          {"Protocol":"SHARP","Bits":15,"Data":"0x412A","DataLSB":"0x8254","Repeat":0}

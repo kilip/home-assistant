@@ -1,0 +1,7 @@
+platform: group
+unique_id: outdoor_lights
+name: Outdoor Lights
+entities:
+  - light.lr_outdoor
+  - light.mbr_outdoor1
+  - light.mbr_outdoor2

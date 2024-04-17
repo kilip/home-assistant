@@ -1,0 +1,12 @@
+mqtt_irsend:
+  alias: "Publish mqtt irsend command"
+  mode: queued
+  icon: mdi:remote
+  sequence:
+    - alias: Publish IR Command
+      service: mqtt.publish
+      data:
+        topic: cmnd/mbr-ir-blaster/irsend
+        payload: "{{ payload }}"        
+    - delay: 
+        seconds: 3

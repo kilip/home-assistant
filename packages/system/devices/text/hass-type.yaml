@@ -1,0 +1,4 @@
+hass_type:
+  name: Server Type
+  initial: !env_var HASS_TYPE
+  icon: mdi:server

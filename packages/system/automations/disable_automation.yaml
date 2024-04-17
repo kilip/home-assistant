@@ -1,0 +1,21 @@
+---
+id: disable_automation
+alias: Disable Automation
+description: Disable Automation on Backup Server
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: binary_sensor.energy_homelab
+    from: "on"
+    to: "off"
+  - platform: state
+    entity_id: binary_sensor.energy_homelab
+    from: "off"
+    to: "on"
+condition:
+  - condition: state
+    entity_id: input_text.hass_type
+    state: backup
+action:
+  - service: script.toggle_automation

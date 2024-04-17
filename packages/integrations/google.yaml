@@ -1,0 +1,35 @@
+---
+google_assistant:
+  project_id: hestia-50327
+  service_account: !include ../../ga-service-account.json
+  report_state: true
+  expose_by_default: false
+  entity_config:
+    light.master_bedroom_lights:
+      name: Bedroom
+      expose: true
+      room: Master Bedroom
+    switch.mbr_s4:
+      name: TV
+      expose: true
+      room: Master Media
+    light.outdoor_lights:
+      name: Outdoors
+      expose: true
+      room: Outdoors
+    light.lr_store:
+      name: Store
+      expose: true
+      room: Living Room
+    light.lr_office:
+      name: Office
+      expose: true
+      room: Living Room
+    light.mbr_ambilight:
+      name: Ambilight
+      expose: true
+      room: Master Bedroom
+    input_boolean.mbr_ac:
+      name: AC
+      expose: true
+      room: Master Media

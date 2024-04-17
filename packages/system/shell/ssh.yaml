@@ -1,0 +1,3 @@
+ssh: ssh -o "StrictHostKeyChecking no" -i /config/.ssh/homelab homelab@{{host}} {{command}}
+turnoff_server: ssh -o "StrictHostKeyChecking no" -i /config/.ssh/homelab homelab@io.lan /srv/olympus/bin/turnoff-server.sh
+sync_backup: scp -r -p -o "StrictHostKeyChecking no" -i /config/.ssh/homelab /config/backups/* homelab@io.lan:/srv/olympus/etc/hass/backups

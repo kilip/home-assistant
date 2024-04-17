@@ -1,0 +1,20 @@
+mbr_ac_fan:
+  name: AC Fan Mode
+  options:
+    - Low
+    - Medium
+    - High
+    - Auto
+  initial: Medium
+  icon: mdi:fan
+
+mbr_ac_temp:
+  name: AC Target Temperature
+  options:
+    - 29
+    - 28
+    - 27
+    - 26
+    - 25
+  initial: 28
+  icon: mdi:temperature-celsius

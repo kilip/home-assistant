@@ -1,0 +1,9 @@
+testing:
+  alias: testing
+  sequence:
+  - service: shell_command.ssh
+    data_template:
+      host: io.lan
+      command: sudo whoami
+  mode: restart
+  icon: mdi:powershell

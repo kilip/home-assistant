@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "icon": "mdi:bed",
+          "theme": "Mushroom Square Shadow",
+          "path": "mbr",
+          "badges": [],
+          "cards": [
+            {
+              "show_name": false,
+              "show_icon": true,
+              "show_state": true,
+              "type": "glance",
+              "entities": [
+                {
+                  "entity": "input_text.hass_type"
+                },
+                {
+                  "entity": "input_boolean.night_time"
+                },
+                {
+                  "entity": "weather.forecast_home"
+                },
+                {
+                  "entity": "sensor.time"
+                }
+              ],
+              "theme": "Mushroom Square Shadow"
+            },
+            {
+              "square": true,
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.master_bedroom_lights",
+                  "icon": "mdi:ceiling-light-multiple",
+                  "hold_action": {
+                    "action": "navigate",
+                    "navigation_path": "/dashboard-home/mbr-lights"
+                  }
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "switch.mbr_s4",
+                  "icon": "mdi:television-classic"
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "input_boolean.mbr_ac"
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_ambilight",
+                  "icon": "mdi:television-ambient-light",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.outdoor_lights",
+                  "icon": "mdi:lightbulb-night",
+                  "hold_action": {
+                    "action": "navigate",
+                    "navigation_path": "/dashboard-home/outdoors-lights"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:sofa",
+          "path": "living-room",
+          "badges": [],
+          "cards": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "switch.lr_office",
+                  "icon": "mdi:chair-rolling"
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "switch.lr_store",
+                  "icon": "mdi:sofa"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:desktop-classic",
+          "theme": "Mushroom Square Shadow",
+          "visible": [
+            {
+              "user": "b5d87cc72e0b42bd9b094ada376b77c4"
+            }
+          ],
+          "path": "office",
+          "badges": [],
+          "cards": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.toggle_zeus",
+                    "target": {}
+                  },
+                  "entity": "binary_sensor.zeus",
+                  "icon": "mdi:desktop-classic",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.turn_on_hera",
+                    "target": {}
+                  },
+                  "icon": "mdi:server",
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "binary_sensor.hera"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.turn_on_mars",
+                    "target": {}
+                  },
+                  "entity": "binary_sensor.mars",
+                  "icon": "mdi:server",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.turn_on_iris",
+                    "target": {}
+                  },
+                  "entity": "binary_sensor.iris",
+                  "icon": "mdi:server",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "binary_sensor.io",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Outdoors Light",
+          "path": "outdoors-lights",
+          "icon": "mdi:outdoor-lamp",
+          "theme": "Mushroom Square Shadow",
+          "subview": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.lr_outdoor"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_outdoor1",
+                  "name": "Backyard 1",
+                  "show_state": false
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_outdoor2",
+                  "name": "Backyard 2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:string-lights",
+          "path": "mbr-lights",
+          "subview": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_l1",
+                  "icon": "mdi:ceiling-light",
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "name": "1"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_l2",
+                  "name": "2",
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:ceiling-light"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_l3",
+                  "icon": "mdi:ceiling-light",
+                  "name": "3",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.lr_store",
+                  "name": "4",
+                  "icon": "mdi:ceiling-light",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.mbr_bathroom",
+                  "icon": "mdi:shower-head",
+                  "hold_action": {
+                    "action": "more-info"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "title": "Rumah Kita"
+    }
+  }
+}

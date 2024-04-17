@@ -1,0 +1,7 @@
+---
+minio:
+  host: minio.itstoni.com
+  port: 443
+  access_key: wxX20pB7OLd4hT3d
+  secret_key: nHB6j0eYbsFaj7uV7P0ta3CodRlesUiq
+  secure: true

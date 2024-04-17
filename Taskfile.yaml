@@ -1,0 +1,11 @@
+---
+version: "3"
+
+tasks:
+  default: task -l
+
+  init:
+    desc: initialize configuration
+    cmds:
+      - mkdir -p backups
+      - pass config/ga-service-account.json > ga-service-account.json

@@ -1,0 +1,19 @@
+---
+id: mbr_ac_clean
+alias: AC Clean
+description: Set AC Clean Mode
+mode: single
+trigger:
+  - platform: state
+    entity_id: input_boolean.mbr_ac_clean
+action:
+  - service: script.mqtt_irsend
+    data_template:
+      payload: >-
+        {% set state = states('input_boolean.mbr_ac_clean') %}
+        {% if state %}
+          {"Protocol":"LG","Bits":28,"Data":"0x88C00B7","DataLSB":"0x103100ED","Repeat":0}
+        {% else %}
+          {"Protocol":"LG","Bits":28,"Data":"0x88C00C8","DataLSB":"0x10310013","Repeat":0}
+        {% endif %}
+

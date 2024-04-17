@@ -1,0 +1,9 @@
+platform: group
+unique_id: 'mbr_lights'
+name: Master Bedroom Lights
+entities:
+  - light.mbr_l1
+  - light.mbr_l2
+  - light.mbr_l3
+  - light.mbr_l4
+  - light.mbr_l5

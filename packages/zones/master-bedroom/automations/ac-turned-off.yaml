@@ -1,0 +1,16 @@
+# ac-off: {"Protocol":"LG","Bits":28,"Data":"0x88C0051","DataLSB":"0x1031008A","Repeat":0}
+# ac-on: {"Protocol":"LG","Bits":28,"Data":"0x8800D52","DataLSB":"0x1001B04A","Repeat":0}
+---
+id: ac_turned_off
+alias: "AC turned OFF"
+description: Send IR command to turn off AC
+trigger:
+- platform: state
+  entity_id: input_boolean.mbr_ac
+  from: "on"
+  to: "off"
+action:
+  - service: script.mqtt_irsend
+    data_template:
+      payload: >-
+        {"Protocol":"LG","Bits":28,"Data":"0x88C0051","DataLSB":"0x1031008A","Repeat":0}

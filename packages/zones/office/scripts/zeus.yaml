@@ -1,0 +1,21 @@
+---
+toggle_zeus:
+  alias: Toggle Zeus
+  mode: single
+  icon: mdi:power
+  sequence:
+    - if:
+        - alias: Check if zeus is on
+          condition: state
+          entity_id: binary_sensor.zeus
+          state: "on"
+      then:
+        - service: script.node_suspend
+          data_template:
+            host: zeus.lan
+      else:
+        - service: script.node_turn_on
+          data_template:
+            mac_address: "70:85:C2:F9:48:AC"
+    - delay:
+        seconds: 30

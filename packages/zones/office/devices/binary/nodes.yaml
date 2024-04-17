@@ -1,0 +1,25 @@
+- platform: ping
+  name: zeus
+  host: 10.0.0.5
+  count: 1
+  scan_interval: 30
+
+- platform: ping
+  name: hera
+  host: 10.0.0.11
+  scan_interval: 30
+
+- platform: ping
+  name: mars
+  host: 10.0.0.12
+  scan_interval: 30
+
+- platform: ping
+  name: iris
+  host: 10.0.0.13
+  scan_interval: 30
+
+- platform: ping
+  name: io
+  host: 10.0.0.15
+  scan_interval: 30

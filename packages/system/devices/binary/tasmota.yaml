@@ -1,0 +1,10 @@
+- platform: ping
+  name: Energy Main
+  host: 192.168.10.24
+  count: 1
+  scan_interval: 5
+- platform: ping
+  name: Energy Homelab
+  host: 192.168.10.28
+  count: 1
+  scan_interval: 5

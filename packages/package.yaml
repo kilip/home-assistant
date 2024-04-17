@@ -1,0 +1,10 @@
+#homeassistant: !include hass/package.yaml
+homeassistant_integrations: !include_dir_merge_named integrations/
+
+system: !include ./system/package.yaml
+settings: !include ./settings/package.yaml
+
+master_bedroom: !include ./zones/master-bedroom/package.yaml
+living_room: !include ./zones/living-room/package.yaml
+outdoors: !include ./zones/outdoors/package.yaml
+office: !include ./zones/office/package.yaml

@@ -1,0 +1,17 @@
+---
+turn_on_mars:
+  alias: Turn On Mars
+  mode: single
+  icon: mdi:power
+  sequence:
+    - if:
+        - alias: Check if mars is off
+          condition: state
+          entity_id: binary_sensor.mars
+          state: "off"
+      then:
+        - service: script.node_turn_on
+          data_template:
+            mac_address: 94:C6:91:A3:8E:A0
+    - delay:
+        seconds: 30

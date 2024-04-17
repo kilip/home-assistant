@@ -1,0 +1,9 @@
+---
+id: zeus_turned_on
+alias: Zeus Turned On
+trigger:
+  - platform: event
+    event_type: switch.turn_on
+    entity_id: switch.zeus
+action:
+  - service: script.turn_on_zeus

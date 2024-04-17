@@ -1,0 +1,20 @@
+---
+id: daily_backup
+alias: Daily Backup
+description: Perform daily backup
+mode: single
+trigger:
+  - platform: time
+    at: "00:00:00"
+condition:
+  - condition: state
+    entity_id: input_text.hass_type
+    state: 'main'
+action:
+  - service: auto_backup.backup_full
+    data:
+      name: "DailyBackup: {{ now().strftime('%A, %B %-d, %Y') }}"
+      keep_days: 7
+  - delay:
+      seconds: 30
+  - service: script.sync_backup

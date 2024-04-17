@@ -1,0 +1,14 @@
+---
+id: tv_turned_on
+alias: Set MBR TV HDMI Input
+trigger:
+  - platform: state
+    entity_id: switch.mbr_s4
+    from: "off"
+    to: "on"
+condition:
+  - condition: state
+    entity_id: input_text.hass_type
+    state: main
+action:
+  - service: script.switch_hdmi_input

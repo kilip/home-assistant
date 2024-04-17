@@ -1,0 +1,25 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+homeassistant:
+  name: !env_var HASS_NAME
+  latitude: !env_var HASS_LATITUDE
+  longitude: !env_var HASS_LONGITUDE
+  elevation: !env_var HASS_ELEVATION
+  unit_system: metric
+  time_zone: Asia/Makassar
+  country: ID
+  packages: !include packages/package.yaml
+  internal_url: https://hass.itstoni.com
+  external_url: https://hestia.itstoni.com
+  allowlist_external_dirs:
+    - "/config/backups"

@@ -1,0 +1,7 @@
+mbr_ac_eco_payload:
+  name: Eco Payload
+  icon: mdi:sprout
+
+mbr_ac_swing_payload:
+  name: Swing Payload
+  icon: mdi:access-point
